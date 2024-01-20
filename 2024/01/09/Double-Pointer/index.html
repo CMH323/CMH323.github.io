@@ -157,7 +157,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2024-01-20 14:47:53
+          2024-01-20 14:51:29
         </span>
         
               <span class="post-tags">
@@ -253,6 +253,11 @@
 
 <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/advantage-shuffle/">870. 优势洗牌</a></p>
 <ul>
+<li>此题逻辑教难，参照田忌赛马：<ol>
+<li>优等马为数组中最大值，劣等马为数组中最小值</li>
+<li>若num1中劣等马 &gt; nums2中劣等马： 答案中nums2中劣等马下标的位置放num1中劣等马<br>若num1中劣等马 &lt;&#x3D; nums2中劣等马： 答案中nums2中优等马下标的位置放num1中劣等马</li>
+</ol>
+</li>
 <li>从小到大遍历nums1数组，根据情况从两端遍历nums2数组</li>
 <li>nums1按照升序排列，nums2扩展成二维数组包含下标后升序排列</li>
 </ul>
@@ -271,7 +276,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2024-01-20 14:47:53
+              2024-01-20 14:51:29
             </span>
             
                   <span class="post-tags">
