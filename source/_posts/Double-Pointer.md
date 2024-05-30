@@ -374,3 +374,69 @@ class Solution {
     }
 }
 ```
+
+[16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest/description/)
+
+- 此题需我们找到最接近target的三数之和,并做出了三个优化
+
+```java
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        Integer minDiff = Integer.MAX_VALUE;
+        int res = 0;
+        int sum = 0;
+        for(int i = 0; i < n - 2; i ++){
+            int j = i + 1;
+            int k = n - 1;
+            // 优化三
+            if(i > 0 && nums[i] == nums[i-1]){
+                continue;
+            }
+
+            // 优化一
+            sum = nums[i] + nums[i+1] + nums[i+2];
+            if(sum > target){
+                if(sum - target < minDiff){
+                    res = sum;
+                }
+                break;
+            }
+            // 优化二
+            sum = nums[i] + nums[n-1] + nums[n-2];
+            if(sum < target){
+                if(target - sum < minDiff){
+                    minDiff = target - sum;
+                    res = sum;
+                }
+                continue;
+            }
+
+            while(j < k){
+                sum = nums[i] + nums[j] + nums[k];
+                if(sum == target){
+                    return sum;
+                }
+                else if(sum > target){
+                    if(sum - target < minDiff){
+                        minDiff = sum - target;
+                        res = sum;
+                    }
+                    k --;
+                }
+                else{ // sum < target
+                    if(target - sum < minDiff){
+                        minDiff = target - sum;
+                        res = sum;
+                    }
+                    j ++;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+
